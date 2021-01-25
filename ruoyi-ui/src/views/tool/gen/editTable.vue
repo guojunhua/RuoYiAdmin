@@ -2,11 +2,11 @@
   <el-card>
     <el-tabs v-model="activeName">
       <el-tab-pane label="基本信息" name="basic">
-        <basic-info-form ref="basicInfo" :info="info" />
+        <basic-info-form ref="basicInfo" :info="info"/>
       </el-tab-pane>
       <el-tab-pane label="字段信息" name="cloum">
         <el-table ref="dragTable" :data="cloumns" row-key="columnId" :max-height="tableHeight">
-          <el-table-column label="序号" type="index" min-width="5%" class-name="allowDrag" />
+          <el-table-column label="序号" type="index" min-width="5%" class-name="allowDrag"/>
           <el-table-column
             label="字段列名"
             prop="columnName"
@@ -27,12 +27,12 @@
           <el-table-column label="Java类型" min-width="11%">
             <template slot-scope="scope">
               <el-select v-model="scope.row.javaType">
-                <el-option label="Long" value="Long" />
-                <el-option label="String" value="String" />
-                <el-option label="Integer" value="Integer" />
-                <el-option label="Double" value="Double" />
-                <el-option label="BigDecimal" value="BigDecimal" />
-                <el-option label="Date" value="Date" />
+                <el-option label="Long" value="Long"/>
+                <el-option label="String" value="String"/>
+                <el-option label="Integer" value="Integer"/>
+                <el-option label="Double" value="Double"/>
+                <el-option label="BigDecimal" value="BigDecimal"/>
+                <el-option label="Date" value="Date"/>
               </el-select>
             </template>
           </el-table-column>
@@ -65,14 +65,14 @@
           <el-table-column label="查询方式" min-width="10%">
             <template slot-scope="scope">
               <el-select v-model="scope.row.queryType">
-                <el-option label="=" value="EQ" />
-                <el-option label="!=" value="NE" />
-                <el-option label=">" value="GT" />
-                <el-option label=">=" value="GTE" />
-                <el-option label="<" value="LT" />
-                <el-option label="<=" value="LTE" />
-                <el-option label="LIKE" value="LIKE" />
-                <el-option label="BETWEEN" value="BETWEEN" />
+                <el-option label="=" value="EQ"/>
+                <el-option label="!=" value="NE"/>
+                <el-option label=">" value="GT"/>
+                <el-option label=">=" value="GTE"/>
+                <el-option label="<" value="LT"/>
+                <el-option label="<=" value="LTE"/>
+                <el-option label="LIKE" value="LIKE"/>
+                <el-option label="BETWEEN" value="BETWEEN"/>
               </el-select>
             </template>
           </el-table-column>
@@ -84,14 +84,14 @@
           <el-table-column label="显示类型" min-width="12%">
             <template slot-scope="scope">
               <el-select v-model="scope.row.htmlType">
-                <el-option label="文本框" value="input" />
-                <el-option label="文本域" value="textarea" />
-                <el-option label="下拉框" value="select" />
-                <el-option label="单选框" value="radio" />
-                <el-option label="复选框" value="checkbox" />
-                <el-option label="日期控件" value="datetime" />
-                <el-option label="上传控件" value="uploadImage" />
-                <el-option label="富文本控件" value="editor" />
+                <el-option label="文本框" value="input"/>
+                <el-option label="文本域" value="textarea"/>
+                <el-option label="下拉框" value="select"/>
+                <el-option label="单选框" value="radio"/>
+                <el-option label="复选框" value="checkbox"/>
+                <el-option label="日期控件" value="datetime"/>
+                <el-option label="上传控件" value="uploadImage"/>
+                <el-option label="富文本控件" value="editor"/>
               </el-select>
             </template>
           </el-table-column>
@@ -105,7 +105,7 @@
                   :value="dict.dictType">
                   <span style="float: left">{{ dict.dictName }}</span>
                   <span style="float: right; color: #8492a6; font-size: 13px">{{ dict.dictType }}</span>
-              </el-option>
+                </el-option>
               </el-select>
             </template>
           </el-table-column>
@@ -124,9 +124,9 @@
   </el-card>
 </template>
 <script>
-import { getGenTable, updateGenTable } from "@/api/tool/gen";
-import { optionselect as getDictOptionselect } from "@/api/system/dict/type";
-import { listMenu as getMenuTreeselect } from "@/api/system/menu";
+import {getGenTable, updateGenTable} from "@/api/tool/gen";
+import {optionselect as getDictOptionselect} from "@/api/system/dict/type";
+import {listMenu as getMenuTreeselect} from "@/api/system/menu";
 import basicInfoForm from "./basicInfoForm";
 import genInfoForm from "./genInfoForm";
 import Sortable from 'sortablejs'
@@ -208,7 +208,7 @@ export default {
     /** 关闭按钮 */
     close() {
       this.$store.dispatch("tagsView/delView", this.$route);
-      this.$router.push({ path: "/tool/gen", query: { t: Date.now()}})
+      this.$router.push({path: "/tool/gen", query: {t: Date.now()}})
     }
   },
   mounted() {

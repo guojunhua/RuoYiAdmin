@@ -5,8 +5,8 @@
         <el-form-item prop="tplCategory">
           <span slot="label">生成模板</span>
           <el-select v-model="info.tplCategory">
-            <el-option label="单表（增删改查）" value="crud" />
-            <el-option label="树表（增删改查）" value="tree" />
+            <el-option label="单表（增删改查）" value="crud"/>
+            <el-option label="树表（增删改查）" value="tree"/>
           </el-select>
         </el-form-item>
       </el-col>
@@ -19,7 +19,7 @@
               <i class="el-icon-question"></i>
             </el-tooltip>
           </span>
-          <el-input v-model="info.packageName" />
+          <el-input v-model="info.packageName"/>
         </el-form-item>
       </el-col>
 
@@ -31,7 +31,7 @@
               <i class="el-icon-question"></i>
             </el-tooltip>
           </span>
-          <el-input v-model="info.moduleName" />
+          <el-input v-model="info.moduleName"/>
         </el-form-item>
       </el-col>
 
@@ -43,7 +43,7 @@
               <i class="el-icon-question"></i>
             </el-tooltip>
           </span>
-          <el-input v-model="info.businessName" />
+          <el-input v-model="info.businessName"/>
         </el-form-item>
       </el-col>
 
@@ -55,7 +55,7 @@
               <i class="el-icon-question"></i>
             </el-tooltip>
           </span>
-          <el-input v-model="info.functionName" />
+          <el-input v-model="info.functionName"/>
         </el-form-item>
       </el-col>
 
@@ -179,7 +179,7 @@ import "@riophae/vue-treeselect/dist/vue-treeselect.css";
 
 export default {
   name: "BasicInfoForm",
-  components: { Treeselect },
+  components: {Treeselect},
   props: {
     info: {
       type: Object,
@@ -194,24 +194,25 @@ export default {
     return {
       rules: {
         tplCategory: [
-          { required: true, message: "请选择生成模板", trigger: "blur" }
+          {required: true, message: "请选择生成模板", trigger: "blur"}
         ],
         packageName: [
-          { required: true, message: "请输入生成包路径", trigger: "blur" }
+          {required: true, message: "请输入生成包路径", trigger: "blur"}
         ],
         moduleName: [
-          { required: true, message: "请输入生成模块名", trigger: "blur" }
+          {required: true, message: "请输入生成模块名", trigger: "blur"}
         ],
         businessName: [
-          { required: true, message: "请输入生成业务名", trigger: "blur" }
+          {required: true, message: "请输入生成业务名", trigger: "blur"}
         ],
         functionName: [
-          { required: true, message: "请输入生成功能名", trigger: "blur" }
+          {required: true, message: "请输入生成功能名", trigger: "blur"}
         ],
       }
     };
   },
-  created() {},
+  created() {
+  },
   methods: {
     /** 转换菜单数据结构 */
     normalizer(node) {

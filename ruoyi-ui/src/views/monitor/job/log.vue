@@ -70,7 +70,8 @@
           :disabled="multiple"
           @click="handleDelete"
           v-hasPermi="['monitor:job:remove']"
-        >删除</el-button>
+        >删除
+        </el-button>
       </el-col>
       <el-col :span="1.5">
         <el-button
@@ -79,7 +80,8 @@
           size="mini"
           @click="handleClean"
           v-hasPermi="['monitor:job:remove']"
-        >清空</el-button>
+        >清空
+        </el-button>
       </el-col>
       <el-col :span="1.5">
         <el-button
@@ -88,19 +90,21 @@
           size="mini"
           @click="handleExport"
           v-hasPermi="['monitor:job:export']"
-        >导出</el-button>
+        >导出
+        </el-button>
       </el-col>
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 
     <el-table v-loading="loading" :data="jobLogList" @selection-change="handleSelectionChange">
-      <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="日志编号" width="80" align="center" prop="jobLogId" />
-      <el-table-column label="任务名称" align="center" prop="jobName" :show-overflow-tooltip="true" />
-      <el-table-column label="任务组名" align="center" prop="jobGroup" :formatter="jobGroupFormat" :show-overflow-tooltip="true" />
-      <el-table-column label="调用目标字符串" align="center" prop="invokeTarget" :show-overflow-tooltip="true" />
-      <el-table-column label="日志信息" align="center" prop="jobMessage" :show-overflow-tooltip="true" />
-      <el-table-column label="执行状态" align="center" prop="status" :formatter="statusFormat" />
+      <el-table-column type="selection" width="55" align="center"/>
+      <el-table-column label="日志编号" width="80" align="center" prop="jobLogId"/>
+      <el-table-column label="任务名称" align="center" prop="jobName" :show-overflow-tooltip="true"/>
+      <el-table-column label="任务组名" align="center" prop="jobGroup" :formatter="jobGroupFormat"
+                       :show-overflow-tooltip="true"/>
+      <el-table-column label="调用目标字符串" align="center" prop="invokeTarget" :show-overflow-tooltip="true"/>
+      <el-table-column label="日志信息" align="center" prop="jobMessage" :show-overflow-tooltip="true"/>
+      <el-table-column label="执行状态" align="center" prop="status" :formatter="statusFormat"/>
       <el-table-column label="执行时间" align="center" prop="createTime" width="180">
         <template slot-scope="scope">
           <span>{{ parseTime(scope.row.createTime) }}</span>
@@ -114,7 +118,8 @@
             icon="el-icon-view"
             @click="handleView(scope.row)"
             v-hasPermi="['monitor:job:query']"
-          >详细</el-button>
+          >详细
+          </el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -164,7 +169,7 @@
 </template>
 
 <script>
-import { listJobLog, delJobLog, exportJobLog, cleanJobLog } from "@/api/monitor/jobLog";
+import {listJobLog, delJobLog, exportJobLog, cleanJobLog} from "@/api/monitor/jobLog";
 
 export default {
   name: "JobLog",
@@ -255,41 +260,41 @@ export default {
     handleDelete(row) {
       const jobLogIds = this.ids;
       this.$confirm('是否确认删除调度日志编号为"' + jobLogIds + '"的数据项?', "警告", {
-          confirmButtonText: "确定",
-          cancelButtonText: "取消",
-          type: "warning"
-        }).then(function() {
-          return delJobLog(jobLogIds);
-        }).then(() => {
-          this.getList();
-          this.msgSuccess("删除成功");
-        })
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      }).then(function () {
+        return delJobLog(jobLogIds);
+      }).then(() => {
+        this.getList();
+        this.msgSuccess("删除成功");
+      })
     },
     /** 清空按钮操作 */
     handleClean() {
       this.$confirm("是否确认清空所有调度日志数据项?", "警告", {
-          confirmButtonText: "确定",
-          cancelButtonText: "取消",
-          type: "warning"
-        }).then(function() {
-          return cleanJobLog();
-        }).then(() => {
-          this.getList();
-          this.msgSuccess("清空成功");
-        })
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      }).then(function () {
+        return cleanJobLog();
+      }).then(() => {
+        this.getList();
+        this.msgSuccess("清空成功");
+      })
     },
     /** 导出按钮操作 */
     handleExport() {
       const queryParams = this.queryParams;
       this.$confirm("是否确认导出所有调度日志数据项?", "警告", {
-          confirmButtonText: "确定",
-          cancelButtonText: "取消",
-          type: "warning"
-        }).then(function() {
-          return exportJobLog(queryParams);
-        }).then(response => {
-          this.download(response.msg);
-        })
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      }).then(function () {
+        return exportJobLog(queryParams);
+      }).then(response => {
+        this.download(response.msg);
+      })
     }
   }
 };
